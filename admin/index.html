@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie do panelu admina</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../frontExtensions/css/bootstrap.min.css"/>
+    <script src="js/shared/sharedScripts.js" type="module"></script>
+    <script src="js/index.js" type="module"></script>
+    <script src="../frontExtensions/js/vue.js"></script>
+    <script src="../frontExtensions/js/jquery.min.js"></script>
+    <script src="../frontExtensions/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="index">
+    <div id="loader" class="overlay">
+        <div class="loaderPosition">
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="window">
+        <h2>Login</h2>
+        <p>Wprowadź dane do logowania</p>
+
+        <div class="form-group">
+            <input placeholder="E-mail" type="text" name="username" class="form-control" value="">
+        </div>
+        <div class="form-group">
+            <input placeholder="Hasło" type="password" name="password" class="form-control">
+        </div>
+            <br>
+        <div class="form-group fullCenter">
+            <input @click="loginToAdminPanel" type="button" class="btn btn-primary" value="Zaloguj">
+        </div>
+        <div v-if="logiError">
+            <br>
+            <div class="alertInfo alert alert-danger">{{ logiError }}</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

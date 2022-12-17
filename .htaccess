@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/front/
+RewriteRule ^(.*)$ /front/$1 [L,R=301]
