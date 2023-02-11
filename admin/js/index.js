@@ -3,7 +3,8 @@ import sharedScripts from "./shared/sharedScripts.js";
 Vue.createApp({
     data() {
         return {
-            logiError: ''
+            loginError: '',
+            counterVal: 0
         };
     },
     methods: {
@@ -13,14 +14,18 @@ Vue.createApp({
                 let response = await fetch("http://localhost/admin/api/adminPanel.php?type=login");
                 let loginData = await response.json();
                 if (loginData.loginError === 'true') {
-                    this.logiError = loginData.loginErrorInfo;
+                    this.loginError = loginData.loginErrorInfo;
                 } else {
-                    this.logiError = '';
+                    this.loginError = '';
                 }
                 this.loadingScreen('false');
             } catch (error) {
                 console.log(error);
             }
+        },
+        async counterAdd() {
+            this.counterVal = this.counterVal + 1;
+            console.log(this.counterVal);
         },
         loadingScreen: sharedScripts.loadingScreenShared,
         loadingScreenStart: sharedScripts.loadingScreenStartShared,

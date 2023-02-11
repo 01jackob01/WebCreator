@@ -23,7 +23,7 @@
         <p>Wprowadź dane do logowania</p>
 
         <div class="form-group">
-            <input placeholder="E-mail" type="text" name="username" class="form-control" value="">
+            <input placeholder="E-mail" type="text" name="username" class="form-control">
         </div>
         <div class="form-group">
             <input placeholder="Hasło" type="password" name="password" class="form-control">
@@ -32,9 +32,9 @@
         <div class="form-group fullCenter">
             <input @click="loginToAdminPanel" type="button" class="btn btn-primary" value="Zaloguj">
         </div>
-        <div v-if="logiError">
+        <div v-if="loginError">
             <br>
-            <div class="alertInfo alert alert-danger">{{ logiError }}</div>
+            <div class="alertInfo alert alert-danger">{{ loginError }}</div>
         </div>
     </div>
 </div>
