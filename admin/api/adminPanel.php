@@ -1,6 +1,13 @@
 <?php
 
-use Admin\Api\Src\Login;
+use admin\api\Class\Login;
+
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: wx3studio.pl');
+    exit;
+}
 
 require '../../vendor/autoload.php';
 

@@ -3,6 +3,7 @@
     "psr-4": {
       "Admin\\": "admin/",
       "Admin\\Api\\": "admin/api/",
+      "Admin\\Api\\Class\\": "admin/api/Class/",
       "Admin\\Api\\Models\\": "admin/api/Models/",
       "Admin\\Api\\Src\\": "admin/api/src/",
       "SiteApi\\": "api/"
