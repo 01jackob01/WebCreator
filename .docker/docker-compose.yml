@@ -3,12 +3,12 @@ version: '3.1'
 services:
   web:
     container_name: apache
-    image: apache_press_plus
+    image: apache_php
     restart: always
     ports:
       - "80:80"
     volumes:
-      - "./:/var/www/html"
+      - "../:/var/www/site"
 
   db:
     container_name: mysql
@@ -21,6 +21,7 @@ services:
       - "3306:3306"
     volumes:
       - db-vol:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   phpmyadmin:
     container_name: phpmyadmin

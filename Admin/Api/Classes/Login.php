@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\api\Class;
+namespace Admin\Api\Classes;
 
 use Admin\Api\Models\EditUsersModel;
 

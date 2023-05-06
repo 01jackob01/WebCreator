@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brak konfiguracji strony</title>
+  <link rel="stylesheet" href="frontExtensions/css/bootstrap.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url(/img/Background.png);
+      background-size: cover;
+      background-position: center;
+      z-index: -10;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 20%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="background-image"></div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <h1 class="mb-4">Brak konfiguracji strony</h1>
+      <p>Nie udało się wczytać ustawień strony. Sprawdź, czy plik konfiguracyjny jest prawidłowo skonfigurowany lub skontaktuj się z administratorem systemu.</p>
+      <a href="#" class="btn btn-primary mt-3" onclick="window.history.back()">Powrót do poprzedniej strony</a>
+    </div>
+  </div>
+</div>
+<div class="image-container">
+  <img src="img/Settings.png" alt="Opis obrazka">
+</div>
+</body>
+</html>

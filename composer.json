@@ -1,19 +1,18 @@
 {
   "autoload": {
     "psr-4": {
-      "Admin\\": "admin/",
-      "Admin\\Api\\": "admin/api/",
-      "Admin\\Api\\Class\\": "admin/api/Class/",
-      "Admin\\Api\\Models\\": "admin/api/Models/",
-      "Admin\\Api\\Src\\": "admin/api/src/",
-      "SiteApi\\": "api/"
+      "Admin\\Api\\Classes\\": "Admin/Api/Classes/",
+      "Admin\\Api\\Models\\": "Admin/Api/Models/"
+    },
+    "psr-0": {
+      "Admin\\Api\\": "Admin/Api/"
     }
   },
   "require": {
     "phpunit/phpunit": "9.5.21",
     "phpunit/php-code-coverage": "9.2.13",
-    "ext-xdebug": "*",
     "ext-curl": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-mysqli": "*"
   }
 }

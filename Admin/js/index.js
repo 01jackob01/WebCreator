@@ -1,4 +1,16 @@
 import sharedScripts from "./shared/sharedScripts.js";
+import { createRouter, createWebHistory } from 'vue-router';
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {
+            path: '/admin',
+            name: 'Admin',
+            component: AdminComponent
+        }
+    ]
+});
 
 Vue.createApp({
     data() {
@@ -11,10 +23,12 @@ Vue.createApp({
         async loginToAdminPanel() {
             try {
                 this.loadingScreen('true');
-                let response = await fetch("http://localhost/admin/api/adminPanel.php?type=login");
+                let dataToLogin = this.getDataToLogin();
+                let response = await fetch("http://localhost/admin/api/adminPanel.php?type=login&dataToLogin=" + dataToLogin);
                 let loginData = await response.json();
                 if (loginData.loginError === 'true') {
                     this.loginError = loginData.loginErrorInfo;
+                    router.push('/admin'); // przekierowanie na stronę /admin
                 } else {
                     this.loginError = '';
                 }
@@ -27,14 +41,21 @@ Vue.createApp({
             this.counterVal = this.counterVal + 1;
             console.log(this.counterVal);
         },
+        getDataToLogin() {
+            let data = {};
+            data.login = document.getElementById('login').value;
+            data.password = document.getElementById('password').value;
+
+            return JSON.stringify(data);
+        },
         loadingScreen: sharedScripts.loadingScreenShared,
         loadingScreenStart: sharedScripts.loadingScreenStartShared,
         checkIsUserLogin: sharedScripts.checkIsUserLoginShared
     },
-    created() {
+    mounted() {
         Promise.all([
             this.loadingScreenStart,
             this.checkIsUserLogin
         ]);
     },
-}).mount('#index');
+}).use(router).mount('#index');

@@ -1,0 +1,7 @@
+CREATE USER 'userwww'@'%' IDENTIFIED BY 'haslohaslo123';
+GRANT ALL PRIVILEGES ON *.* TO 'userwww'@'%';
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'%' IDENTIFIED BY 'haslohaslo123';
+FLUSH PRIVILEGES;
+
+CREATE
